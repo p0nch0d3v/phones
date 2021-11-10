@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  phones:
+    image: node:lts-alpine
+    command: >
+      sh -c "cd /app &&
+               npm install &&
+               npm run start"
+    volumes:
+      - .:/app
+    ports:
+      - 3000:3000
