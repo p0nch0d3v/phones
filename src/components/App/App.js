@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import PhoneItem from '../../components/PhoneItem/PhoneItem';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import data from '../../sites.json';
 import { Constants } from '../../Common';
 
@@ -31,9 +30,11 @@ function App() {
 	
 	const onGoClick = () => {
 		sites.forEach((s)=>{
-			if (s.checked === true) {
+			if (s.url !== "-" && s.checked === true) {
 				setTimeout(() => { 
-					window.open(s.url.replace(Constants.NumberPlaceHolder, phoneNumber, '_blank'));
+					const url = s.url.replace(Constants.NumberPlaceHolder, phoneNumber);
+					console.debug('Opening: ' + url);
+					window.open(url, '_blank');
 				}, 1);
 			}
 		});
