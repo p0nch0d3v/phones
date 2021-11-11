@@ -29,13 +29,9 @@ function App() {
 	};
 	
 	const onGoClick = () => {
-		sites.forEach((s)=>{
-			if (s.url !== "-" && s.checked === true) {
-				setTimeout(() => { 
-					const url = s.url.replace(Constants.NumberPlaceHolder, phoneNumber);
-					console.debug('Opening: ' + url);
-					window.open(url, '_blank');
-				}, 1);
+		sites.forEach((site)=>{
+			if (site.checked === true) {
+				openSite(site);
 			}
 		});
 	};
@@ -53,6 +49,20 @@ function App() {
 		newSites.forEach((s) =>  s.checked = checked);
 		setSites(newSites);
 	};
+
+	const onSiteGoClick = (e) => {
+		const site = sites.find((s) => s.id === e);
+		openSite(site);
+	};
+
+	const openSite = (site) => {
+		if (site.url !== "-" && cleanPhoneNumner().length >= 10) {
+			setTimeout(() => { 
+				const url = site.url.replace(Constants.NumberPlaceHolder, phoneNumber);
+				window.open(url, '_blank');
+			}, 1);
+		}
+	}
 
 	return (
 	<div class="container-fluid">
@@ -94,7 +104,9 @@ function App() {
 				return <PhoneItem site_url={s.url} 
 								  site_id={s.id}
 								  is_checked={s.checked}
-							      onSiteChange={onSiteChange} />
+							      onSiteChange={onSiteChange}
+								  onSiteGoClick={onSiteGoClick} 
+						/>
 		}) }
 	</div>
   );

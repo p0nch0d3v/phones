@@ -1,8 +1,13 @@
+import { useState } from 'react';
 
-function PhoneItem({site_url, site_id, is_checked, onSiteChange}) {
+function PhoneItem({site_url, site_id, is_checked, onSiteChange, onSiteGoClick}) {
+    const [hover, setHover] = useState(false);
+
     if (site_url !== "-") {
         return (
-            <div class="input-group mb-1">
+            <div class="input-group mb-1" 
+                 onMouseEnter={()=> setHover(true)} 
+                 onMouseLeave={()=> setHover(false)}>
                 <div class="input-group-text">
                 <input class="form-check-input mt-0" 
                         type="checkbox" 
@@ -13,6 +18,16 @@ function PhoneItem({site_url, site_id, is_checked, onSiteChange}) {
                 </div>
                 <label class="form-control" 
                        for={site_id}>{site_url}</label>	
+                { hover && 
+                    (
+                        <div class="input-group-append">
+				            <button class="btn btn-secondary" 
+						            type="button"
+                                    onClick={() => onSiteGoClick(site_id)}
+                                    >Go</button>
+					        </div>
+                    ) 
+                }
             </div>
         );
     }
