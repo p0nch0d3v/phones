@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import PhoneItem from '../../components/PhoneItem/PhoneItem';
 import data from '../../sites.json';
 import { Constants } from '../../Common';
@@ -21,11 +21,8 @@ function App() {
 	const isAnySiteChecked = () => sites.some((s) => s.checked === true);
 
 	const onPhoneNumberChange = (e) => {
+		e.preventDefault();
 		setPhoneNumber(e.target.value);
-		
-		let newSites = [...sites];
-		newSites.forEach((s) => s.url = s.raw_url.replace(Constants.NumberPlaceHolder, cleanPhoneNumner(e.target.value)));
-		setSites(newSites);
 	};
 	
 	const onGoClick = () => {
@@ -63,6 +60,23 @@ function App() {
 			}, 1);
 		}
 	}
+	
+	useEffect(() => {
+		let newSites = [...sites];
+		newSites.forEach((s) => s.url = s.raw_url.replace(Constants.NumberPlaceHolder, cleanPhoneNumner(phoneNumber)));
+		setSites(newSites);
+		
+		window.location.hash = "#" + cleanPhoneNumner(phoneNumber);
+	}, [phoneNumber])
+
+	useEffect(() => {
+		setTimeout(() => {
+			const phoneOnHash = window.location.hash.replace('#', '');
+			if (phoneOnHash !== phoneNumber) {
+				setPhoneNumber(phoneOnHash);
+			}
+		}, 1);
+	});
 
 	return (
 	<div class="container-fluid">
@@ -73,6 +87,7 @@ function App() {
 						class="form-control" 
 						placeholder="Phone number" 
 						onChange={onPhoneNumberChange}
+						value={phoneNumber}
 						id="number"/>
 					<div class="input-group-append">
 						<button class="btn btn-primary" 
