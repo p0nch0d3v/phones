@@ -10,13 +10,13 @@
     { "name" : "-" },
     { "name" : "https://www.telefonospam.com.mx/{number}" },
     { "name" : "https://www.listaspam.com/busca.php?Telefono={number}" },
-    { "name" : "http://www.quienhabla.mx/{number}" },
+    { "name" : "https://www.quienhabla.mx/{number}" },
     { "name" : "https://quetelefono.com/{number}" },
     { "name" : "https://mx.shouldianswer.net/numero-de-telefono/{number}" },
-    { "name" : "http://datostelefonicos.com/info/52{number}" },
+    { "name" : "https://datostelefonicos.com/info/52{number}" },
     { "name" : "https://www.cleverdialer.mx/numero/{number}" },
     { "name" : "https://www.tellows.mx/num/{number}" },
-    { "name" : "http://www.miraquienhabla.com.mx/{number}" },
+    { "name" : "https://www.miraquienhabla.com.mx/{number}" },
     { "name" : "https://www.telguarder.com/mx/numero/{number}" },
     { "name" : "https://www.numerosdetelefono.mx/numero/{number}" },
     { "name" : "https://www.telspy.org/phonenumber/{number}?lang=es" },
@@ -26,5 +26,5 @@
     { "name" : "-"},
     { "name" : "https://es.spamphonebook.com/52{number}" },
     { "name" : "https://www.numerostelefono.com/mx/?s={number}" },
-    { "name" : "http://mx.whocalledme.net/PhoneNumber/{number}" }
+    { "name" : "https://mx.whocalledme.net/PhoneNumber/{number}" }
 ]
