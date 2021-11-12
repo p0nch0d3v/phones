@@ -2,8 +2,10 @@ import { useEffect, useState } from 'react';
 import PhoneItem from '../../components/PhoneItem/PhoneItem';
 import data from '../../sites.json';
 import { Constants } from '../../Common';
+import useHash from '../../UseHash';
 
 function App() {
+	const [hash, setHash] = useHash();
 	const cleanPhoneNumner = (_phoneNumber) => (_phoneNumber || phoneNumber).replace(/[^\d]/gi, "");
 	const [phoneNumber, setPhoneNumber] = useState('');
 	const [sites, setSites] = useState(
@@ -66,17 +68,15 @@ function App() {
 		newSites.forEach((s) => s.url = s.raw_url.replace(Constants.NumberPlaceHolder, cleanPhoneNumner(phoneNumber)));
 		setSites(newSites);
 		
-		window.location.hash = "#" + cleanPhoneNumner(phoneNumber);
+		setHash(cleanPhoneNumner(phoneNumber));
 	}, [phoneNumber])
 
 	useEffect(() => {
-		setTimeout(() => {
-			const phoneOnHash = window.location.hash.replace('#', '');
-			if (phoneOnHash !== phoneNumber) {
-				setPhoneNumber(phoneOnHash);
-			}
-		}, 1);
-	});
+		const phoneOnHash = hash.replace('#', '');
+		if (phoneOnHash !== phoneNumber) {
+			setPhoneNumber(phoneOnHash);
+		}
+	}, []);
 
 	return (
 	<div class="container-fluid">
