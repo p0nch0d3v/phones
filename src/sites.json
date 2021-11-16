@@ -23,6 +23,8 @@
     { "name" : "https://www.showcaller.global/mx/+52{number}" },
     { "name" : "https://www.everycaller.com/phone-number/52-{number}/" },
     { "name" : "https://www.quien-llama.cl/numero/{number}" },
+    { "name" : "https://mexicotelefonos.mx/52{number}" },
+    { "name" : "https://mx.whocallsus.com/quien-es-{number}" },
     { "name" : "-"},
     { "name" : "https://es.spamphonebook.com/52{number}" },
     { "name" : "https://www.numerostelefono.com/mx/?s={number}" },
