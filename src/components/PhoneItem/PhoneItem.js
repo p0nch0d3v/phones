@@ -1,6 +1,14 @@
 import { useState } from 'react';
 
-function PhoneItem({site_url, site_id, is_checked, onSiteChange, onSiteGoClick}) {
+function PhoneItem(
+    {
+        site_url, 
+        site_id, 
+        is_checked, 
+        onSiteChange, 
+        onSiteGoClick,
+        isMobile
+    }) {
     const [hover, setHover] = useState(false);
 
     if (site_url !== "-") {
@@ -18,7 +26,7 @@ function PhoneItem({site_url, site_id, is_checked, onSiteChange, onSiteGoClick})
                 </div>
                 <label class="form-control" 
                        for={site_id}>{site_url}</label>	
-                { hover && 
+                { !isMobile && hover && 
                     (
                         <div class="input-group-append">
 				            <button class="btn btn-secondary" 
