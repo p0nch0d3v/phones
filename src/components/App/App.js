@@ -11,6 +11,11 @@ function App() {
 	var md = new MobileDetect(navigator.userAgent);
 	const isMobile = md.mobile() || md.phone() || md.tablet();
 
+	const gitDateFormatted = () => {
+		const d = new Date(gitInfo.date);
+		return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()} ${d.getHours()}:${d.getMinutes()}`;
+	};
+
 	const [hash, setHash] = useHash();
 	const cleanPhoneNumner = (_phoneNumber) => (_phoneNumber || phoneNumber).replace(/[^\d]/gi, "");
 	const [phoneNumber, setPhoneNumber] = useState('');
@@ -133,7 +138,7 @@ function App() {
 		<div class="row">
 			<div class="col-12">
 				<p class="git_info">
-					{`${gitInfo.message} - ${gitInfo.date} - ${gitInfo.hash}`}
+					{`${gitInfo.hash} @ ${gitDateFormatted()}`}
 				</p>
 			</div>
 		</div>
