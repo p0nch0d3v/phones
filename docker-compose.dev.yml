@@ -2,11 +2,12 @@ version: '3'
 
 services:
   phones:
-    image: node:lts-alpine
+    image: node:lts
     command: >
       sh -c "cd /app &&
-               npm install &&
-               npm run start"
+             npm run git-info &&
+             npm install &&
+             npm run start"
     volumes:
       - .:/app
     ports:
