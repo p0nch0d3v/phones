@@ -15,7 +15,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "git-info": "echo export default \"{\\\"message\\\": \\\"$(git log --format=%B -n 1 HEAD)\\\", \\\"hash\\\": \\\"$(git log --format=%h -n 1 HEAD)\\\", \\\"date\\\": \\\"$(git log --format=%cI -n 1 HEAD)\\\"}\"  > src/_git_commit.js"
   },
   "eslintConfig": {
     "extends": [

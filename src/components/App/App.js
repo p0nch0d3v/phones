@@ -4,10 +4,13 @@ import data from '../../sites.json';
 import { Constants } from '../../Common';
 import useHash from '../../UseHash';
 import MobileDetect from 'mobile-detect'
+import gitInfo from '../../_git_commit';
+import './App.css';
 
 function App() {
 	var md = new MobileDetect(navigator.userAgent);
 	const isMobile = md.mobile() || md.phone() || md.tablet();
+
 	const [hash, setHash] = useHash();
 	const cleanPhoneNumner = (_phoneNumber) => (_phoneNumber || phoneNumber).replace(/[^\d]/gi, "");
 	const [phoneNumber, setPhoneNumber] = useState('');
@@ -127,6 +130,13 @@ function App() {
 								  isMobile={isMobile}
 						/>
 		}) }
+		<div class="row">
+			<div class="col-12">
+				<p class="git_info">
+					{`${gitInfo.message} - ${gitInfo.date} - ${gitInfo.hash}`}
+				</p>
+			</div>
+		</div>
 	</div>
   );
 }
