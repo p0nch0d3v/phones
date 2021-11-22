@@ -135,7 +135,7 @@ function App() {
 								  isMobile={isMobile}
 						/>
 		}) }
-		{gitInfo && ( <div class="row">
+		{gitInfo && gitInfo.hash && ( <div class="row">
 			<div class="col-12">
 				<p class="git_info">
 					{`${gitInfo.hash} @ ${gitDateFormatted()}`}
