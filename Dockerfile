@@ -3,7 +3,7 @@ FROM node:lts as build-step
 RUN mkdir /app
 WORKDIR /app
 COPY . /app
-RUN npm install && npm run git-info && \ 
+RUN npm install && \ 
     npm install react-scripts@4.0.3 -g
 RUN npm run build
 
