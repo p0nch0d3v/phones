@@ -20,7 +20,7 @@
     { "name" : "https://www.telguarder.com/mx/numero/{number}" },
     { "name" : "https://www.numerosdetelefono.mx/numero/{number}" },
     { "name" : "https://www.telspy.org/phonenumber/{number}?lang=es" },
-    { "name" : "https://www.showcaller.global/mx/+52{number}" },
+    { "name" : "https://www.showcaller.global/mx/+52{number}", "enabled": false },
     { "name" : "https://www.everycaller.com/phone-number/52-{number}/" },
     { "name" : "https://www.quien-llama.cl/numero/{number}" },
     { "name" : "https://mexicotelefonos.mx/52{number}" },
@@ -28,5 +28,5 @@
     { "name" : "-"},
     { "name" : "https://es.spamphonebook.com/52{number}" },
     { "name" : "https://www.numerostelefono.com/mx/?s={number}" },
-    { "name" : "https://mx.whocalledme.net/PhoneNumber/{number}" }
+    { "name" : "https://mx.whocalledme.net/PhoneNumber/{number}", "enabled": false }
 ]
