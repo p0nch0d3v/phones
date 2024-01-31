@@ -17,6 +17,6 @@
   "devDependencies": {
     "@preact/preset-vite": "2.5.0",
     "mobile-detect": "1.4.5",
-    "vite": "4.5.1"
+    "vite": "4.5.2"
   }
 }
